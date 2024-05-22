@@ -1,37 +1,26 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>RELEVAMIENTO VISUAL</ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<ion-toolbar color="primary">
+  <ion-title style="font-family: sans-serif;">RELEVAMIENTO VISUAL</ion-title>
+</ion-toolbar>
+<!-- QUEDA BUSCAR UN FONDO, PERSONALIZAR INPUTS Y SELECT DE USUARIOS -->
 <ion-content [fullscreen]="true" color="light">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">PruebaApp</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <h1>Bienvenido</h1>
+  <h3>Inicie sesión a continuación</h3>
   
-  <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
-  <div style="flex-direction: column;">
+  <form class="needs-validation" [formGroup]="formLog">
+    <ion-list [inset]="true" >
+      <ion-item>
+        <ion-input label="Correo" type="email" labelPlacement="floating" formControlName="email"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-input label="Clave" type="password" labelPlacement="floating" formControlName="password"></ion-input>
+      </ion-item>
+    </ion-list>
 
-    <ion-label style="display: flex; align-items: center; justify-content: center;">
-      <h1>IniciO DE Sesión</h1>
-    </ion-label>
-    <form class="needs-validation" [formGroup]="formLog">
-      <ion-list [inset]="true" >
-        <ion-item>
-          <ion-input label="Email" type="email" labelPlacement="floating" formControlName="email"></ion-input>
-        </ion-item>
-        
-        <ion-item>
-          <ion-input label="Password" type="password" labelPlacement="floating" formControlName="password"></ion-input>
-        </ion-item>
-      </ion-list>
-
-      <ion-button color="tertiary" expand="block" (click)="this.iniciarSesion()">Ingresar</ion-button>
-    </form>
+    <ion-button color="tertiary" expand="block" (click)="this.iniciarSesion()">Ingresar</ion-button>
+  </form>
     
-    <div *ngIf="this.cargaFin == true; then mostrar else esperar"></div>
+    <div *ngIf="this.cargaFin === true; then mostrar else esperar"></div>
 
     <ng-template #mostrar>
       <ion-select label="Acceso rápido" fill="outline" (ionChange)="onQuickUser($event)">
@@ -41,8 +30,6 @@
     <ng-template #esperar>
       <ion-select label="Cargando" fill="outline"></ion-select>
     </ng-template>
-  </div>
-  </div>  
 
 </ion-content>
 

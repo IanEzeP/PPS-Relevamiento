@@ -5,11 +5,11 @@ const routes: Routes = [
   
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule) //Lo mas probable es que la primera ruta tenga que ser el splash animado
   },
   { path: '', redirectTo: 'login', pathMatch: 'full'},
   {
-    path: 'tabs',
+    path: 'menu',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
 ];

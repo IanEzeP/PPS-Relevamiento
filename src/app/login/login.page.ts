@@ -50,7 +50,7 @@ export class LoginPage implements OnInit, OnDestroy {
 
   private spaceValidator(control : AbstractControl) : null | object
   { 
-    const value = <string>control.value;
+    const value = <string>control.value.toString();
     const espacios = value.includes(' ');
     
     if(espacios)
@@ -120,7 +120,7 @@ export class LoginPage implements OnInit, OnDestroy {
         this.alert.successToast("Sesión iniciada correctamente"); //El toast de Ionic no tapa el header ni el footer, vamos a tener que usar ese.
         this.cleanInputs();
 
-        this.router.navigateByUrl('/tabs');
+        this.router.navigateByUrl('/menu');
       }
       ).catch(() => {
         this.auth.logOut();
@@ -136,8 +136,8 @@ export class LoginPage implements OnInit, OnDestroy {
 
   onQuickUser(user: any) 
   {
-    this.formLog.controls['email'].setValue(user.target.value.mail);
-    this.formLog.controls['password'].setValue(user.target.value.password);
+    this.formLog.controls['email'].setValue(user.target.value.correo);
+    this.formLog.controls['password'].setValue(user.target.value.clave);
   }
 
   cleanInputs()
