@@ -4,10 +4,29 @@
 }
 
 ion-content {
-    --background: var(--ion-color-light);
+    --background: url(../../assets/edif.jpg);
     --overflow: hidden;
 }
-  
+
+div.token {
+    
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #ffffffea;
+}
+
+ion-input {
+
+    bottom: 1rem;
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    
+    color: var(--ion-color-medium);
+    --background: #ffffff;
+}
+
 h1 {
     margin-top: 5%;
     margin-bottom: 10px;

@@ -1,21 +1,16 @@
 <ion-toolbar color="primary">
   <ion-title style="font-family: sans-serif;">RELEVAMIENTO VISUAL</ion-title>
 </ion-toolbar>
-<!-- QUEDA BUSCAR UN FONDO, PERSONALIZAR INPUTS Y SELECT DE USUARIOS -->
-<ion-content [fullscreen]="true" color="light">
-  <h1>Bienvenido</h1>
-  <h3>Inicie sesión a continuación</h3>
+
+<ion-content [fullscreen]="true">
+  <div class="token">
+    <h1>Bienvenido</h1>
+    <h3>Inicie sesión a continuación</h3>
   
   <form class="needs-validation" [formGroup]="formLog">
-    <ion-list [inset]="true" >
-      <ion-item>
-        <ion-input label="Correo" type="email" labelPlacement="floating" formControlName="email"></ion-input>
-      </ion-item>
-      
-      <ion-item>
-        <ion-input label="Clave" type="password" labelPlacement="floating" formControlName="password"></ion-input>
-      </ion-item>
-    </ion-list>
+    <ion-input fill="outline" label="Correo" type="email" labelPlacement="floating" formControlName="email"></ion-input>
+
+    <ion-input fill="outline" label="Clave" type="password" labelPlacement="floating" formControlName="password"></ion-input>
 
     <ion-button color="tertiary" expand="block" (click)="this.iniciarSesion()">Ingresar</ion-button>
   </form>
@@ -30,6 +25,6 @@
     <ng-template #esperar>
       <ion-select label="Cargando" fill="outline"></ion-select>
     </ng-template>
-
+</div>
 </ion-content>
 
