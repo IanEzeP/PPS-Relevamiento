@@ -1,30 +1,39 @@
 <ion-toolbar color="primary">
-  <ion-title style="font-family: sans-serif;">RELEVAMIENTO VISUAL</ion-title>
+  <ion-title><h2>RELEVAMIENTO VISUAL</h2></ion-title>
 </ion-toolbar>
 
 <ion-content [fullscreen]="true">
-  <div class="token">
+  <div class="login">
+
     <h1>Bienvenido</h1>
     <h3>Inicie sesión a continuación</h3>
   
-  <form class="needs-validation" [formGroup]="formLog">
-    <ion-input fill="outline" label="Correo" type="email" labelPlacement="floating" formControlName="email"></ion-input>
-
-    <ion-input fill="outline" label="Clave" type="password" labelPlacement="floating" formControlName="password"></ion-input>
-
-    <ion-button color="tertiary" expand="block" (click)="this.iniciarSesion()">Ingresar</ion-button>
-  </form>
+    <form class="needs-validation" [formGroup]="formLog">
+      
+      <ion-input fill="outline" label="Correo" type="email" labelPlacement="floating" formControlName="email"></ion-input>
+      <ion-input fill="outline" label="Clave" type="password" labelPlacement="floating" formControlName="password"></ion-input>
+      <ion-button color="tertiary" expand="block" (click)="this.iniciarSesion()">Ingresar</ion-button>
+    </form>
     
     <div *ngIf="this.cargaFin === true; then mostrar else esperar"></div>
 
     <ng-template #mostrar>
-      <ion-select label="Acceso rápido" fill="outline" (ionChange)="onQuickUser($event)">
+
+      <ion-select label="Acceso rápido" fill="outline" interface="popover" labelPlacement="floating" (ionChange)="onQuickUser($event)">
         <ion-select-option *ngFor="let item of arrayTestUsers" [value]="item">{{item.perfil}}</ion-select-option>
       </ion-select>
     </ng-template>
     <ng-template #esperar>
-      <ion-select label="Cargando" fill="outline"></ion-select>
+
+      <ion-select label="Cargando" fill="outline" labelPlacement="floating"></ion-select>
     </ng-template>
-</div>
+
+    
+  </div>
 </ion-content>
 
+<ion-footer>
+  <span>
+    <p>Desarrollado por Ian International Energy of Black People </p>
+  </span>
+</ion-footer>
