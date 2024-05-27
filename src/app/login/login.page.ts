@@ -6,6 +6,7 @@ import { AuthService } from '../services/auth.service';
 import { AlertService } from '../services/alert.service';
 import { Subscription } from 'rxjs';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -21,6 +22,8 @@ export class LoginPage implements OnInit, OnDestroy {
   public formLog : FormGroup;
 
   private obsDatabase: Subscription = Subscription.EMPTY;
+
+  public alertController : any;
 
   constructor(private alert: AlertService, private router: Router, private data: DatabaseService,
      private auth: AuthService, public formBuilder: FormBuilder) 
@@ -100,9 +103,11 @@ export class LoginPage implements OnInit, OnDestroy {
   async iniciarSesion()
   {
     let tmpUser: User = User.initialize();
-    console.log("Entro en iniciar sesion");
+    
     if(this.formLog.valid)
     {
+      this.alertaEspera();
+
       let formValues = this.formLog.value;
       this.arrayFirebase.forEach(usuario => 
       {
@@ -114,18 +119,26 @@ export class LoginPage implements OnInit, OnDestroy {
       await this.auth.logIn(tmpUser.correo, tmpUser.clave).then(res =>
       {
         console.log("Usuario valido");
-        //if(res!.user.emailVerified == true) { }
         this.auth.email = res!.user.email || '';
         this.auth.perfil = tmpUser.perfil;
-        this.alert.successToast("Sesión iniciada correctamente"); //El toast de Ionic no tapa el header ni el footer, vamos a tener que usar ese.
-        this.cleanInputs();
-
-        this.router.navigateByUrl('/menu');
+        
+        setTimeout(() => {
+          
+          Swal.close(this.alertController);
+          this.alert.successToast("Sesión iniciada correctamente");
+          this.cleanInputs();
+          this.router.navigateByUrl('/menu');
+        }, 2000);
       }
       ).catch(() => {
-        this.auth.logOut();
-        this.alert.sweetAlert('Error', 'No fue posible iniciar sesión, compruebe los datos ingresados', 'error');
-        this.formLog.reset({password: ''});
+        if(Swal.isVisible())
+        {
+          setTimeout(() => {
+            this.auth.logOut();
+            this.alert.sweetAlert('Error', 'No fue posible iniciar sesión, compruebe los datos ingresados', 'error');
+            this.formLog.reset({password: ''});
+          }, 1000);
+        }
       });
     }
     else
@@ -143,5 +156,10 @@ export class LoginPage implements OnInit, OnDestroy {
   cleanInputs()
   {
     this.formLog.reset({email: '', password: ''});
+  }
+
+  async alertaEspera()
+  {
+    this.alertController = await this.alert.waitAlert('Iniciando Sesión', 'Por favor espere...');
   }
 }

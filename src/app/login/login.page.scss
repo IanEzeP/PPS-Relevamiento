@@ -9,33 +9,39 @@ ion-content {
 }
 
 ion-input {
+    width: 96%;//Parece funcionar
+    margin-left: 2%;
     bottom: 1rem;
     font-size: 17px;
     font-weight: 600;
     margin-bottom: 1rem;
     color: var(--ion-color-medium);
     --background: #ffffff;
-    font-family: Verdana;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 ion-button {
     display: block;
+    width: 96%;
+    margin-left: 2%;
     margin-top: 1.5rem;
     margin-bottom: 2rem;
     --box-shadow: none;
     height: 60px;
     font-size: 1.2rem;
     text-transform: initial;
-    font-family: Verdana;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 ion-select {
+    width: 96%;
+    margin-left: 2%;
     bottom: -1rem;
     font-size: 17px;
     font-weight: 600;
     color: var(--ion-color-medium);
     --background: #ffffff;
-    font-family: Verdana;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 form {
@@ -55,31 +61,33 @@ h1 {
     margin-left: 10px;
     font-size: 32px;
     font-weight: 700;
-    font-family: Verdana;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    //Chequear en build
+    background-color: var(--primary-color); /* Usará --light-primary-color en tema claro y --dark-primary-color en tema oscuro */
+    color: black;
 }
 
 h2 {
     margin-left: 10px;
-    font-family: Verdana;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 h3 {
     color: var(--ion-color-secondary);
     margin-left: 10px;
     font-weight: 600;
-    font-family: Verdana;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 p {
     width: 100%;
     text-align: center;
-    border-bottom: 1px solid var(--ion-color-tertiary);
     color: var(--ion-color-secondary);
     line-height: 0.1em;
-    margin: 10px 0 27px;
+    margin-top: 60%;
     font-size: 14px;
     span {
-        background: var(--ion-color-light);
+        background: none;
         padding:0 10px;
     }
 }

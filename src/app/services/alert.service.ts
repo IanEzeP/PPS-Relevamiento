@@ -9,6 +9,13 @@ export class AlertService {
 
   constructor() { }
   
+  /**
+   * Alert básica y personalizable
+   * @param titulo 
+   * @param mensaje 
+   * @param icono 
+   * @returns 
+   */
   public sweetAlert(titulo: string, mensaje: string, icono: any)
   {
     return Swal.fire(
@@ -17,6 +24,22 @@ export class AlertService {
         title: titulo,
         text: mensaje,
         icon: icono,
+      });
+  }
+
+  public waitAlert(titulo: string, mensaje: string)
+  {
+    return Swal.fire(
+      {
+        heightAuto: false,
+        title: titulo,
+        text: mensaje,
+        showConfirmButton: false,
+        allowEscapeKey: false,
+        allowOutsideClick: false,
+        didOpen: () => {
+          Swal.showLoading();
+        }
       });
   }
 
@@ -70,7 +93,5 @@ export class AlertService {
         showConfirmButton: false,
       });
   }
-
-  
 
 }
