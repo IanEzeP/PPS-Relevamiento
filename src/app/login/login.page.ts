@@ -121,6 +121,9 @@ export class LoginPage implements OnInit, OnDestroy {
         console.log("Usuario valido");
         this.auth.email = res!.user.email || '';
         this.auth.perfil = tmpUser.perfil;
+        this.auth.id = tmpUser.id;
+        this.auth.nombre = tmpUser.nombre;
+        this.auth.sexo = tmpUser.sexo;
         
         setTimeout(() => {
           
@@ -134,6 +137,7 @@ export class LoginPage implements OnInit, OnDestroy {
         if(Swal.isVisible())
         {
           setTimeout(() => {
+            
             this.auth.logOut();
             this.alert.sweetAlert('Error', 'No fue posible iniciar sesión, compruebe los datos ingresados', 'error');
             this.formLog.reset({password: ''});

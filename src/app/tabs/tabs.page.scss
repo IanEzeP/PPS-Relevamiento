@@ -1,1 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
 
+ion-content {
+    --background: var(--ion-color-secondary);
+    --overflow: hidden;
+}
+
+ion-button.logout {
+    --background: var(--ion-color-danger);
+    ion-icon {
+        color: #ffffffff;
+    }
+}
+
+ion-button.camara {
+    display: block;
+    height: 46%;
+    --background: var(--ion-color-light);
+    text-transform: initial;
+    margin-bottom: 4%;
+    --box-shadow: none;
+    font-size: 1.2rem;
+}
+
+div.menu {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #ffffffea;
+}

@@ -15,6 +15,9 @@ export class AuthService {
   logueado : boolean = false;
   email : string = "";
   perfil : string = "";
+  id : number = 0;
+  nombre : string = "";
+  sexo : string = "";
 
   constructor(private auth: Auth) { }
 
@@ -37,7 +40,10 @@ export class AuthService {
     //this.loading.load();
     this.logueado = false;
     this.email = '';
-    this.perfil = "";
+    this.perfil = '';
+    this.nombre = '';
+    this.id = 0;
+    this.sexo = '';
     /*setTimeout(() => {
       this.loading.stop();
     }, 1000);*/

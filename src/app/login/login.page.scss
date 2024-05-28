@@ -9,7 +9,7 @@ ion-content {
 }
 
 ion-input {
-    width: 96%;//Parece funcionar
+    width: 96%;
     margin-left: 2%;
     bottom: 1rem;
     font-size: 17px;
@@ -62,8 +62,7 @@ h1 {
     font-size: 32px;
     font-weight: 700;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    //Chequear en build
-    background-color: var(--primary-color); /* Usará --light-primary-color en tema claro y --dark-primary-color en tema oscuro */
+    background-color: var(--primary-color);
     color: black;
 }
 
