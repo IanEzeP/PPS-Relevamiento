@@ -8,21 +8,65 @@ ion-content {
     --overflow: hidden;
 }
 
+ion-toolbar {
+    position: relative;
+}
+
+.logout,
+.images {
+    position: absolute;
+}
+
 ion-button.logout {
+    left: 0;
+    top: 0;
+    border: 2px solid var(--ion-color-dark);
+    border-radius: 6px;
+    height: 100%;
+
+    --box-shadow: none;
     --background: var(--ion-color-danger);
+    
     ion-icon {
-        color: #ffffffff;
+        color: #ffffffea;
+    }
+}
+
+ion-button.images {
+    right: 0;
+    top: 0;
+
+    border: 2px solid var(--ion-color-medium);
+    border-radius: 6px;
+    height: 100%;
+
+    --box-shadow: none;
+    --background: linear-gradient(
+        90deg,
+        rgb(238, 105, 131, 1) 0%,
+        rgb(255, 196, 196, 1) 100%
+      );
+
+    ion-icon {
+        color: #ffffffea;
     }
 }
 
 ion-button.camara {
     display: block;
-    height: 46%;
-    --background: var(--ion-color-light);
+    height: 44%;
     text-transform: initial;
-    margin-bottom: 4%;
-    --box-shadow: none;
+    margin-bottom: 1rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-top: 1rem;
     font-size: 1.2rem;
+
+    --background: var(--ion-color-light);
+    --box-shadow: none;
+
+    border: 3px solid var(--ion-color-secondary);
+    border-radius: 10px;
 }
 
 div.menu {

@@ -1,17 +1,19 @@
 <ion-toolbar color="primary">
-
+  
   <ion-button class="logout" aria-label="Logout" (click)="this.cerrarSesion()">
     <ion-icon aria-hidden="true" name="log-out-outline" size="large"></ion-icon>
-    <span>Cerrar Sesión</span> 
   </ion-button>
-
+  <ion-button class="images" aria-label="Images">
+    <ion-icon aria-hidden="true" name="images-outline" size="large"></ion-icon>
+  </ion-button>
 </ion-toolbar>
+
 <ion-content [fullscreen]="true">
   <div class="menu">
     
-    <ion-button class="camara" (click)="botonPresionado()">Cosas lindas</ion-button>
+    <ion-button class="camara" (click)="tomarFoto('linda')">Cosas lindas</ion-button>
 
-    <textarea name="console" id="console" style="width: 100%; height: 50%;"></textarea>
+    <ion-button class="camara" (click)="tomarFoto('fea')">Cosas feas</ion-button>
   </div>
 </ion-content>
 

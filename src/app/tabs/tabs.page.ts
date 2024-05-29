@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { Camera, CameraResultType } from '@capacitor/camera';
+import { Filesystem } from '@capacitor/filesystem';
 import { AlertService } from '../services/alert.service';
 
 @Component({
@@ -23,27 +24,17 @@ export class TabsPage {
     });
   }
 
-  async botonPresionado()
+  async tomarFoto(tipo: string)
   {
-    let textarea = document.getElementById('console');
-
     const image = await Camera.getPhoto({
       quality: 100,
       promptLabelHeader: 'Seleccione una opción',
       promptLabelPhoto: 'Elegir desde la galería',
       promptLabelPicture: 'Tomar una foto',
-      resultType: CameraResultType.DataUrl
+      resultType: CameraResultType.Uri
     });
 
-    console.log(image);
-    
-    textarea!.textContent += image.base64String! + '\n';
-    textarea!.textContent += image.dataUrl! + '\n'; 
-    textarea!.textContent += image.webPath! + '\n'; 
-    textarea!.textContent += image.path! + '\n'; 
-    textarea!.textContent += image.format! + '\n'; 
-    
-    await this.subirFotoPerfil('linda', image);
+    this.subirFotoPerfil(tipo, image);
   }
 
   async subirFotoPerfil(tipo : string, file : any)
@@ -52,11 +43,16 @@ export class TabsPage {
     {
       if(file.format == 'jpg' || file.format == 'jpeg' || file.format == 'png' || file.format == 'jfif')
       {
-        let fecha = new Date();
-        const path = 'Relevamiento/' + this.auth.nombre + '_' + this.auth.id + '/' + fecha.getTime() + '.' + file.format; //Si tuviera que subir varias fotos debería agregar un elemento aleatorio además de la fecha.
-        const uploadTask = await this.firestorage.upload(path, file.dataUrl); //Probé con los distintos parámetros de file y cambiando CameraResultType, en ninguno logré subir la foto de forma correcta
-        const url = await uploadTask.ref.getDownloadURL();
+        this.alert.waitAlert('Publicando...', 'Esto puedo demorar unos segundos');
+        const response = await fetch(file.webPath!);
+        const blob = await response.blob();
 
+        let fecha = new Date();
+
+        const path = 'Relevamiento/' + this.auth.nombre + '_' + this.auth.id + '/' + fecha.getTime() + '.' + file.format; //Si tuviera que subir varias fotos debería agregar un elemento aleatorio además de la fecha.
+        
+        const uploadTask = await this.firestorage.upload(path, blob); 
+        const url = await uploadTask.ref.getDownloadURL(); 
         const documento = this.firestore.doc("fotos-edificio/" + this.firestore.createId());
         documento.set(
         {

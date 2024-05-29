@@ -131,7 +131,7 @@ export class LoginPage implements OnInit, OnDestroy {
           this.alert.successToast("Sesión iniciada correctamente");
           this.cleanInputs();
           this.router.navigateByUrl('/menu');
-        }, 2000);
+        }, 1500);
       }
       ).catch(() => {
         if(Swal.isVisible())
