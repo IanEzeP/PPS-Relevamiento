@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="menu">
+    <ion-list *ngIf="this.loaded">
+      <ion-card *ngFor="let imagen of this.fotos">
+        <ion-card-header>
+          <ion-card-title>Usuario X compartió</ion-card-title>
+          <ion-card-subtitle>
+            <ion-avatar>
+              <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+            </ion-avatar>
+            <ion-label>{{imagen.usuario}}</ion-label>
+        </ion-card-subtitle>
+        </ion-card-header>
+        <img alt="Silhouette of mountains" src="{{imagen.imagen}}" />
+        <ion-card-content>
+          Mostrar fecha?
+        </ion-card-content>
+        <ion-button fill="clear">N votos</ion-button>
+      </ion-card>
+    </ion-list>
+  </div>
+</ion-content>

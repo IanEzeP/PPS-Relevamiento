@@ -1,20 +1,29 @@
 <ion-toolbar color="primary">
-  
   <ion-button class="logout" aria-label="Logout" (click)="this.cerrarSesion()">
     <ion-icon aria-hidden="true" name="log-out-outline" size="large"></ion-icon>
   </ion-button>
+  <!-- Estaría bueno poner una leyenda que diga en que tab estamos
+    
   <ion-button class="images" aria-label="Images">
-    <ion-icon aria-hidden="true" name="images-outline" size="large"></ion-icon>
+    <ion-icon aria-hidden="true" name="images" size="large"></ion-icon>
   </ion-button>
+-->
 </ion-toolbar>
 
-<ion-content [fullscreen]="true">
-  <div class="menu">
-    
-    <ion-button class="camara" (click)="tomarFoto('linda')">Cosas lindas</ion-button>
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="camara" href="/menu/camara">
+      <ion-icon aria-hidden="true" name="camera" size="large"></ion-icon>
+    </ion-tab-button>
 
-    <ion-button class="camara" (click)="tomarFoto('fea')">Cosas feas</ion-button>
-  </div>
-</ion-content>
+    <ion-tab-button tab="fotos" href="/menu/fotos">
+      <ion-icon aria-hidden="true" name="images" size="large"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="graficos" href="/menu/graficos">
+      <ion-icon aria-hidden="true" name="podium" size="large"></ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
 
 
