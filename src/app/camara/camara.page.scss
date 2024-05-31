@@ -8,19 +8,6 @@ ion-content {
     --overflow: hidden;
 }
 
-//Ref only
-ion-button.logout {
-    left: 0;
-    top: 0;
-    border: 2px solid var(--ion-color-dark);
-    border-radius: 6px;
-    height: 100%;
-
-    ion-icon {
-        color: #ffffffea;
-    }
-}
-
 ion-button.camara {
     display: block;
     height: 40%;

@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ion-content {
+    --background: var(--ion-color-secondary);
+    --overflow: hidden;
+}
+
+ion-button.selection {
+    width: 40%;
+    height: 2rem;
+    text-transform: initial;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+
+    --background: var(--ion-color-tertiary);
+    --box-shadow: none;
+
+    border: 3px solid var(--ion-color-secondary);
+    border-radius: 10px;
+}
+
+div.menu {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #ffffffea;
+}
