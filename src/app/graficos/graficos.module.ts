@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
 import { GraficosPageRoutingModule } from './graficos-routing.module';
+import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 
 import { GraficosPage } from './graficos.page';
 
@@ -13,7 +12,8 @@ import { GraficosPage } from './graficos.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    GraficosPageRoutingModule
+    GraficosPageRoutingModule,
+    CanvasJSAngularChartsModule
   ],
   declarations: [GraficosPage]
 })

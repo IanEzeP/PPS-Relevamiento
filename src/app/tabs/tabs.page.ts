@@ -11,6 +11,8 @@ import Swal from 'sweetalert2';
 })
 export class TabsPage {
 
+  public seccion: string = 'Cámara';
+
   constructor(private auth: AuthService, private router: Router, private alert: AlertService) {}
 
   cerrarSesion()
@@ -33,5 +35,10 @@ export class TabsPage {
         });
       }
     });
+  }
+
+  cambioTab(tab: string)
+  {
+    this.seccion = tab;
   }
 }
