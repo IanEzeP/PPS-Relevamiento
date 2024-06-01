@@ -22,7 +22,8 @@ export class GraficosPage implements OnInit, OnDestroy {
 
   ngOnInit() 
   {
-    console.log("Entro en gráficos")
+    console.log("Entro en gráficos");
+      
     this.obsDatabase = this.data.getCollectionObservable('fotos-edificio').subscribe((next: any) =>
     {
       let result: Array<any> = next;
@@ -73,7 +74,6 @@ export class GraficosPage implements OnInit, OnDestroy {
     {
       const element = this.fotosLindas[i];
       
-      //if(element.votos > 0)
       this.seriesPie.push({ 
         y: element.votos, 
         name: element.usuario + ' ' + element.fecha.toLocaleDateString() + 
@@ -116,6 +116,8 @@ export class GraficosPage implements OnInit, OnDestroy {
     }
 
     this.chart.render();
+    const elementoCanva = document.querySelector(".canvasjs-chart-credit");
+    elementoCanva?.remove();
   }
 
   private chart : any;

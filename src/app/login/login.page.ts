@@ -140,7 +140,7 @@ export class LoginPage implements OnInit, OnDestroy {
             
             this.auth.logOut();
             this.alert.sweetAlert('Error', 'No fue posible iniciar sesión, compruebe los datos ingresados', 'error');
-            this.formLog.reset({password: ''});
+            this.cleanInputs();
           }, 1000);
         }
       });

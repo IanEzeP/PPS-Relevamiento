@@ -7,11 +7,16 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule) //Lo mas probable es que la primera ruta tenga que ser el splash animado
   },
-  { path: '', redirectTo: 'login', pathMatch: 'full'},
+  { path: '', redirectTo: 'anim-splash', pathMatch: 'full'},
   {
     path: 'menu',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
+  {
+    path: 'anim-splash',
+    loadChildren: () => import('./anim-splash/anim-splash.module').then( m => m.AnimSplashPageModule)
+  },
+
 ];
 @NgModule({
   imports: [
