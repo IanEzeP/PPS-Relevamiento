@@ -4,7 +4,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="menu">
+  <div>
     <ion-list *ngIf="this.loaded">
       <ion-card *ngFor="let imagen of this.fotos" [ngStyle]="{'box-shadow': imagen.tipo ? '0px 2px 5px rgba(0, 255, 0, 0.2)' : '0px 2px 5px rgba(255, 0, 0, 0.2)'}">
         <ion-card-header>

@@ -37,16 +37,12 @@ export class AuthService {
 
   async logOut()
   {
-    //this.loading.load();
     this.logueado = false;
     this.email = '';
     this.perfil = '';
     this.nombre = '';
     this.id = 0;
     this.sexo = '';
-    /*setTimeout(() => {
-      this.loading.stop();
-    }, 1000);*/
     
     return await signOut(this.auth);
   }

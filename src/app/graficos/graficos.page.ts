@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subscription, interval } from 'rxjs';
 import { DatabaseService } from '../services/database.service';
 
 @Component({
@@ -124,6 +124,7 @@ export class GraficosPage implements OnInit, OnDestroy {
 
   public chartOptionsPie = {
     animationEnabled: true,
+    theme: "dark2", //Con esto consigo fondo del gráfico negro
 	  data: [{
       type: "pie",
       startAngle: 0,
@@ -136,7 +137,8 @@ export class GraficosPage implements OnInit, OnDestroy {
 
   public chartOptionsCol = {
     animationEnabled: true,
-    axisY: { title: "Votos" },
+    theme: "dark2",
+    axisY: { title: "Votos", interval: 1 },
     axisX: { labelAngle: 0 },
     data: [{        
       type: "column",

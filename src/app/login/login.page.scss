@@ -51,8 +51,9 @@ form {
 div.login {
     position: absolute;
     height: 100%;
-    width: 100%;
-    background-color: #ffffffea;
+    width: 96%;
+    margin-left: 2%;
+    background-color: #ffffffd8;
 }
 
 h1 {
@@ -72,7 +73,7 @@ h2 {
 }
 
 h3 {
-    color: var(--ion-color-secondary);
+    color: var(--ion-color-medium);
     margin-left: 10px;
     font-weight: 600;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -81,9 +82,9 @@ h3 {
 p {
     width: 100%;
     text-align: center;
-    color: var(--ion-color-secondary);
+    color: var(--ion-color-medium);
     line-height: 0.1em;
-    margin-top: 60%;
+    margin-top: 10%;
     font-size: 14px;
     span {
         background: none;

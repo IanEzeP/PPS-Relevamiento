@@ -67,7 +67,6 @@ export class LoginPage implements OnInit, OnDestroy {
   }
   //#endregion
 
-
   ngOnInit() 
   {
     this.cleanInputs();

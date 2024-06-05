@@ -1,5 +1,5 @@
 ion-content {
-  --background: var(--ion-color-medium);
+  --background: var(--ion-color-tertiary);
 }
 
 ion-skeleton-text.button {
@@ -8,6 +8,6 @@ ion-skeleton-text.button {
   --background-rgb: 255,145,0;
 }
 
-div.menu {
-  background-color: #ffffffea;
+ion-list {
+  background-color: #ffffff00;
 }
