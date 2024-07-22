@@ -5,15 +5,21 @@
 
 <ion-content [fullscreen]="true">
   <div>
+
     <ion-list *ngIf="this.loaded">
-      <ion-card *ngFor="let imagen of this.fotos" [ngStyle]="{'box-shadow': imagen.tipo ? '0px 2px 5px rgba(0, 255, 0, 0.2)' : '0px 2px 5px rgba(255, 0, 0, 0.2)'}">
+      <ion-card *ngFor="let imagen of this.fotos" 
+      [ngStyle]="{'box-shadow': imagen.tipo ? '0px 2px 5px rgba(0, 255, 0, 0.2)' : '0px 2px 5px rgba(255, 0, 0, 0.2)'}">
+        
         <ion-card-header>
           <ion-card-title>{{ imagen.usuario }} compartió cosa {{ imagen.tipo_texto }} del edificio:</ion-card-title>
         </ion-card-header>
+
         <ion-card-content>
           Publicado el  {{ imagen.fecha }}
         </ion-card-content>
+
         <img src="{{ imagen.imagen }}" />
+
         <ion-button fill="clear" aria-label="voto" (click)="this.onVotar(imagen)">
           <div *ngIf="imagen.votantes.includes(this.auth.id) == true, then votado else noVotado"></div>
             <ng-template #votado><ion-icon aria-hidden="true" name="star" size="large"></ion-icon></ng-template>
