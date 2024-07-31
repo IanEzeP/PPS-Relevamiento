@@ -26,7 +26,14 @@ export class FotosPage implements OnInit, OnDestroy {
     {
       let result: Array<any> = next;
       this.fotos = [];
-      result.sort((a, b) => b.fecha.seconds - a.fecha.seconds);
+      result.sort((a, b) => {
+        let result = b.fecha.seconds - a.fecha.seconds;
+
+        if (result == 0) {
+          result = b.fecha.nanoseconds - a.fecha.nanoseconds;
+        }
+        return result;
+      });
       result.forEach((obj: any) => {
         let fecha = new Date(obj.fecha.seconds * 1000).toLocaleDateString();
         let linda = false;

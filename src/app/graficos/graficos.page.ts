@@ -74,11 +74,13 @@ export class GraficosPage implements OnInit, OnDestroy {
     {
       const element = this.fotosLindas[i];
       
-      this.seriesPie.push({ 
-        y: element.votos, 
-        name: element.usuario + ' ' + element.fecha.toLocaleDateString() + 
-        ' ' + element.fecha.toLocaleTimeString(), 
-      });
+      if (element.votos > 0) {
+        this.seriesPie.push({ 
+          y: element.votos, 
+          name: element.usuario + ' ' + element.fecha.toLocaleDateString(),
+          //id: element.id_foto
+        });
+      }
     }
 
     for (let i = 0; i < this.fotosFeas.length; i++) 
